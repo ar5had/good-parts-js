@@ -1,0 +1,32 @@
+<body>
+  <button class="btns">btn1</button>
+  <button class="btns">btn2</button>
+  <button class="btns">btn3</button>
+  <button class="btns">btn4</button>
+  <script type="text/javascript">
+  // Page - 39
+  // BAD EXAMPLE
+  // This example fails because the event handler function is bound
+  // to variable i, not the value of variable i.
+    var nodes = document.querySelectorAll('.btns');
+    function bindEvents1(){
+      for(var i = 0; i < nodes.length; i++) {
+        nodes[i].addEventListener("click", function() {
+          alert(i);
+        });
+      }
+    };
+  // BETTER EXAMPLE
+  // This example uses the closure property to bind value of i.
+    function bindEvents2(){
+      for(var i = 0; i < nodes.length; i++) {
+        (function(i){
+          nodes[i].addEventListener("click", function() {
+            alert(i+1);
+          });
+        })(i);
+      }
+    };
+    bindEvents2();
+  </script>
+</body>
