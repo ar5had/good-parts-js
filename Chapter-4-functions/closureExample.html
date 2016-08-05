@@ -10,7 +10,7 @@
   // to variable i, not the value of variable i.
     var nodes = document.querySelectorAll('.btns');
     function bindEvents1(){
-      for(var i = 0; i < nodes.length; i++) {
+      for(var i = 1; i < nodes.length + 1; i++) {
         nodes[i].addEventListener("click", function() {
           alert(i);
         });
@@ -19,10 +19,10 @@
   // BETTER EXAMPLE
   // This example uses the closure property to bind value of i.
     function bindEvents2(){
-      for(var i = 0; i < nodes.length; i++) {
+      for(var i = 1; i < nodes.length + 1; i++) {
         (function(i){
           nodes[i].addEventListener("click", function() {
-            alert(i+1);
+            alert(i);
           });
         })(i);
       }
