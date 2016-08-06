@@ -1,0 +1,24 @@
+<body>
+  <script>
+    // Page-44
+    // using memoisation to cut down the no of function calls
+
+    var fibonacci = function() {
+      var memo = [0, 1];
+      var fib = function(n) {
+        var  result = memo[n];
+        if(typeof result !== 'number') {
+          result = fib(n-1) + fib(n-2);
+          memo[n] = result;
+        }
+
+        return result;
+
+      };
+      return fib;
+    }();
+
+    for(var i = 0; i < 10; i++)
+      document.writeln(fibonacci(i));
+  </script>
+</body>
