@@ -2,7 +2,7 @@
 var memoiser = function (memo, fundamental) {
   var shell = function (i) {
     var result = memo[i];
-    if (result !== 'number') {
+    if (typeof result !== 'number') {
       result = fundamental(shell, i);
       memo[i] = result;
     }
